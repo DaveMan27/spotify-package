@@ -1,0 +1,111 @@
+<template>
+    <div class = "slds-align_absolute-center" style="width:40rem;">
+        <lightning-combobox
+            name        = "progress"
+            label       = "Playlists"
+            value       = {value}
+            placeholder = "Select Playlist"
+            options     = {comboBoxPlaylistArray}
+            onchange    = {handleComboBoxChange} >
+        </lightning-combobox>          
+    </div> 
+    <div              class                     = "slds-m-vertical_medium slds-align_absolute-center">
+        <lightning-button variant                   = "brand-outline" label = "Show Visualization" title = "Primary action with lighter look" onclick = {handleShowVisualization} class = "slds-m-left_x-small"></lightning-button>
+    </div>
+    <div              class   = "slds-m-vertical_medium slds-align_absolute-center">
+    <lightning-button variant = "brand-outline" label = "Sort Array" title = "Primary action with lighter look" onclick = {sortArray} class = "slds-m-left_x-small"></lightning-button>
+    </div>
+    
+    <template if:true = {showPlaylist}>
+    <div      style   = "height: 500px;">
+            <lightning-datatable
+                    key-field = "id"
+                    data      = {simplifiedTrackArray}
+                    columns   = {columns}
+                    hide-checkbox-column
+                    show-row-number-column>
+            </lightning-datatable>
+        </div>
+    </template>
+
+    <template if:true = {showPlaylist}>
+    <div      class   = "slds-m-vertical_medium">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <template for:each={columns} for:item="col">
+                        <th key={col.fieldName} scope="col" onclick={sortArray}>
+                            {col.label}
+                        </th>
+                    </template>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each = {data} for:item              = "row">
+                <tr       key      = {row.id} class               = "slds-hint-parent">
+                <template for:each = {row.displayValues} for:item = "value" for:index = "index">
+                <td       key      = {row.id}>
+                                <!-- Check if value is a URL -->
+                                <template if:true={value.url}>
+                                    <a href={value.url} target={value.target}>{value.label}</a>
+                                </template>
+                                <!-- Render as plain text if not a URL -->
+                                <template if:false={value.url}>
+                                    {value.label}
+                                </template>
+                            </td>
+                        </template>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+        </div>
+    </template>
+
+    
+    <!-- <template if:true={showPlaylists}>
+        <c-spotify-playlist-table playlists={simplifiedPlaylistArray} onplaylistselect={handlePlaylistSelect}></c-spotify-playlist-table>
+    </template> -->
+
+    <!--                   <template if:true = {showTracks}>
+    <c-spotify-tracks-list tracks            = {simplifiedTrackArray} ontrackselect = {handleTrackSelect}></c-spotify-tracks-list>
+    </template> -->
+
+
+
+    <template                                 if:true  = {showVisualization}>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-box">
+            <span>        <c-spotify-visualisation-key-distribution analysis = {keyFeatures}></c-spotify-visualisation-key-distribution>
+            </span>
+            </div>
+            <div class="slds-col slds-box">
+            <span>        <c-spotify-visualisation-key-distribution analysis = {keyFeatures}></c-spotify-visualisation-key-distribution>
+            </span>
+            </div>
+            <div   class                                              = "slds-col slds-box">
+            <span> <c-spotify-visualisation-key-distribution analysis = {keyFeatures}></c-spotify-visualisation-key-distribution>
+                   
+                </span>
+                </div>
+
+            </div>
+    
+    
+
+    </template>
+ 
+    <!-- <template                                 if:true  = {showVisualization}>
+    <c-spotify-visualisation-key-distribution analysis = {instrumentalArray}></c-spotify-visualisation-key-distribution>
+    </template>  -->
+<!-- SpotifyVisualisationBoxplot -->
+    <!-- <template                                 if:true  = {showVisualization}>
+        <c-spotify-visualisation-boxplot analysis = {keyTempoArray}></c-spotify-visualisation-boxplot>
+        </template> -->
+
+
+        <!-- <lightning-button variant = "brand-outline" label = "Get Profile" title = "Primary action with lighter look" onclick = {handleGetProfile} class = "slds-m-left_x-small"></lightning-button> -->
+
+    
+
+</template>

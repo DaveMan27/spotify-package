@@ -1,0 +1,23 @@
+<?xml           version = "1.0" encoding = "UTF-8"?>
+<CustomMetadata xmlns   = "http://soap.sforce.com/2006/04/metadata"
+xmlns           :xsi    = "http://www.w3.org/2001/XMLSchema-instance"
+xmlns           :xsd    = "http://www.w3.org/2001/XMLSchema">
+    <label>Config Settings</label>
+    <protected>false</protected>
+    <values>
+        <field>API_Endpoint__c</field>
+        <value xsi:type="xsd:string">https://api.spotify.com/v1/</value>
+    </values>
+    <values>
+        <field>Client_ID__c</field>
+        <value xsi:type="xsd:string">3f7ebf7b90dc466ca7b071f0c080375d</value>
+    </values>
+    <values>
+        <field>Client_Secret__c</field>
+        <value xsi:type="xsd:string">a394cf97cdea4f80bf96dd46c14cdca8</value>
+    </values>
+    <values>
+        <field>Token_Endpoint__c</field>
+        <value xsi:type="xsd:string">https://accounts.spotify.com/api/token</value>
+    </values>
+</CustomMetadata>

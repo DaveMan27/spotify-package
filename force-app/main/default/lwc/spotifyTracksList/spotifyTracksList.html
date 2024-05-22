@@ -1,0 +1,9 @@
+<template>
+    <ul>
+        <template for:each={tracks} for:item="track" for:index="index">
+            <li key={track.id} data-id={track.id} onclick={handleTrackClick}>
+                <a>{track.name} - {track.artists_nonArray}</a>
+            </li>
+        </template>
+    </ul>
+</template>

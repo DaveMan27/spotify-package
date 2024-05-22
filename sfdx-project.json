@@ -1,0 +1,19 @@
+{
+  "packageDirectories": [
+    {
+      "path"              : "force-app",
+      "default"           : true,
+      "package"           : "Spotify",
+      "versionName"       : "ver 0.1",
+      "versionNumber"     : "0.1.0.NEXT",
+      "versionDescription": ""
+    }
+  ],
+  "name": "spotify-app",
+  "namespace": "DaveDev27",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "59.0",
+  "packageAliases": {
+    "Spotify": "0HoQy0000000DN3KAM"
+  }
+}

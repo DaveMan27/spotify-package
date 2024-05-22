@@ -1,0 +1,16 @@
+<template>
+    <table>
+        <thead>
+            <tr>                
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each = {playlists} for:item="playlist">
+            <tr       key={playlist.id} onclick={handleClick} data-id={playlist.id}>
+                    <td><a>{playlist.name}</a></td>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+</template>

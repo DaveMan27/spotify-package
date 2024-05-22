@@ -1,0 +1,9 @@
+[
+    {"key": "F", "frequency": 3},
+    {"key": "B", "frequency": 2},
+    {"key": "A", "frequency": 2},
+    {"key": "D", "frequency": 1},
+    {"key": "G#/Ab", "frequency": 1},
+    {"key": "A#/Bb", "frequency": 1},
+    {"key": "C", "frequency": 1}
+  ]
