@@ -2,7 +2,6 @@ import { LightningElement, api } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { loadScript, loadStyle } from 'lightning/platformResourceLoader';
 import D3 from '@salesforce/resourceUrl/D3_min';
-import DATA from '@salesforce/resourceUrl/data'; // Ensure this points to a valid URL
 import STYLES from '@salesforce/resourceUrl/styles';
 
 export default class SpotifyVisualisationKeyDistribution extends LightningElement {
